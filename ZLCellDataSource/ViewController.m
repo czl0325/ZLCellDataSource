@@ -1,18 +1,15 @@
-# ZLCellDataSource
-为UIViewController瘦身，把UITableView和UICollectionView的代理提取出来，可节省1/3的代码量。
+//
+//  ViewController.m
+//  ZLCellDataSource
+//
+//  Created by zhaoliang chen on 2018/9/17.
+//  Copyright © 2018年 github. All rights reserved.
+//
 
-支持cocoapod导入
+#import "ViewController.h"
+#import "ZLCellDataSource.h"
+#import "ZLBaseViewModel.h"
 
-```
-pod 'ZLCellDataSource'
-```
-
-
-### ZLCellDataSource
-
-把UITableView和UICollectionView的代理提取出来，使用者只需要在UIViewController类中定义好ZLCellDataSource* dataSource的对象，并实现它的block即可，并且主要要将dataSource赋值给UITableView的dataSource。同理UICollectionView也是如此。
-
-```
 @interface ViewController ()
 
 @property(nonatomic,strong)NSMutableArray* array;
@@ -63,26 +60,3 @@ pod 'ZLCellDataSource'
 
 
 @end
-
-```
-
-### ZLSectionDataSource
-
-同理，实现函数
-
-```
-- (instancetype)initWithItems:(NSArray *)items
-               cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
-           configureCellBlock:(CellConfigureBlock)configureCellBlock;
-```
-
-和单个section不同的是，cellIdentifiers需要传入数组，也可以只传入一个元素，ZLSectionDataSource会自动帮你把所有的section都匹配为同一个cellIdentifiers。
-
-### ZLBaseViewModel
-
-实现viewmodel，把网络请求等数组处理也剥离开来
-
-使用时候请继承ZLBaseViewModel。把网络请求函数写在你自己定义的viewmodel类中，让viewcontroller来调用。
-
-
-

@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BEE166E5214F4798001680B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE166E4214F4798001680B2 /* AppDelegate.m */; };
+		BEE166E8214F4798001680B2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE166E7214F4798001680B2 /* ViewController.m */; };
+		BEE166EB214F4798001680B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE166E9214F4798001680B2 /* Main.storyboard */; };
+		BEE166ED214F479A001680B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEE166EC214F479A001680B2 /* Assets.xcassets */; };
+		BEE166F0214F479A001680B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE166EE214F479A001680B2 /* LaunchScreen.storyboard */; };
+		BEE166F3214F479A001680B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE166F2214F479A001680B2 /* main.m */; };
+		BEE166FD214F479A001680B2 /* ZLCellDataSourceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE166FC214F479A001680B2 /* ZLCellDataSourceTests.m */; };
+		BEE16708214F479A001680B2 /* ZLCellDataSourceUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE16707214F479A001680B2 /* ZLCellDataSourceUITests.m */; };
+		BEE1671C214F47EA001680B2 /* ZLCellDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE16717214F47EA001680B2 /* ZLCellDataSource.m */; };
+		BEE1671D214F47EA001680B2 /* ZLBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE16718214F47EA001680B2 /* ZLBaseViewModel.m */; };
+		BEE1671E214F47EA001680B2 /* ZLSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE16719214F47EA001680B2 /* ZLSectionDataSource.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BEE166F9214F479A001680B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEE166D8214F4798001680B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEE166DF214F4798001680B2;
+			remoteInfo = ZLCellDataSource;
+		};
+		BEE16704214F479A001680B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BEE166D8214F4798001680B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BEE166DF214F4798001680B2;
+			remoteInfo = ZLCellDataSource;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BEE166E0214F4798001680B2 /* ZLCellDataSource.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZLCellDataSource.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE166E3214F4798001680B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BEE166E4214F4798001680B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BEE166E6214F4798001680B2 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BEE166E7214F4798001680B2 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BEE166EA214F4798001680B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BEE166EC214F479A001680B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BEE166EF214F479A001680B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BEE166F1214F479A001680B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE166F2214F479A001680B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BEE166F8214F479A001680B2 /* ZLCellDataSourceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZLCellDataSourceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE166FC214F479A001680B2 /* ZLCellDataSourceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLCellDataSourceTests.m; sourceTree = "<group>"; };
+		BEE166FE214F479A001680B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE16703214F479A001680B2 /* ZLCellDataSourceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZLCellDataSourceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BEE16707214F479A001680B2 /* ZLCellDataSourceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZLCellDataSourceUITests.m; sourceTree = "<group>"; };
+		BEE16709214F479A001680B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEE16716214F47EA001680B2 /* ZLSectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLSectionDataSource.h; sourceTree = "<group>"; };
+		BEE16717214F47EA001680B2 /* ZLCellDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLCellDataSource.m; sourceTree = "<group>"; };
+		BEE16718214F47EA001680B2 /* ZLBaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLBaseViewModel.m; sourceTree = "<group>"; };
+		BEE16719214F47EA001680B2 /* ZLSectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSectionDataSource.m; sourceTree = "<group>"; };
+		BEE1671A214F47EA001680B2 /* ZLBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLBaseViewModel.h; sourceTree = "<group>"; };
+		BEE1671B214F47EA001680B2 /* ZLCellDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCellDataSource.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BEE166DD214F4798001680B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE166F5214F479A001680B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE16700214F479A001680B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BEE166D7214F4798001680B2 = {
+			isa = PBXGroup;
+			children = (
+				BEE166E2214F4798001680B2 /* ZLCellDataSource */,
+				BEE166FB214F479A001680B2 /* ZLCellDataSourceTests */,
+				BEE16706214F479A001680B2 /* ZLCellDataSourceUITests */,
+				BEE166E1214F4798001680B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BEE166E1214F4798001680B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BEE166E0214F4798001680B2 /* ZLCellDataSource.app */,
+				BEE166F8214F479A001680B2 /* ZLCellDataSourceTests.xctest */,
+				BEE16703214F479A001680B2 /* ZLCellDataSourceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BEE166E2214F4798001680B2 /* ZLCellDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				BEE16715214F47EA001680B2 /* ZLCellDataSource */,
+				BEE166E3214F4798001680B2 /* AppDelegate.h */,
+				BEE166E4214F4798001680B2 /* AppDelegate.m */,
+				BEE166E6214F4798001680B2 /* ViewController.h */,
+				BEE166E7214F4798001680B2 /* ViewController.m */,
+				BEE166E9214F4798001680B2 /* Main.storyboard */,
+				BEE166EC214F479A001680B2 /* Assets.xcassets */,
+				BEE166EE214F479A001680B2 /* LaunchScreen.storyboard */,
+				BEE166F1214F479A001680B2 /* Info.plist */,
+				BEE166F2214F479A001680B2 /* main.m */,
+			);
+			path = ZLCellDataSource;
+			sourceTree = "<group>";
+		};
+		BEE166FB214F479A001680B2 /* ZLCellDataSourceTests */ = {
+			isa = PBXGroup;
+			children = (
+				BEE166FC214F479A001680B2 /* ZLCellDataSourceTests.m */,
+				BEE166FE214F479A001680B2 /* Info.plist */,
+			);
+			path = ZLCellDataSourceTests;
+			sourceTree = "<group>";
+		};
+		BEE16706214F479A001680B2 /* ZLCellDataSourceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BEE16707214F479A001680B2 /* ZLCellDataSourceUITests.m */,
+				BEE16709214F479A001680B2 /* Info.plist */,
+			);
+			path = ZLCellDataSourceUITests;
+			sourceTree = "<group>";
+		};
+		BEE16715214F47EA001680B2 /* ZLCellDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				BEE1671A214F47EA001680B2 /* ZLBaseViewModel.h */,
+				BEE16718214F47EA001680B2 /* ZLBaseViewModel.m */,
+				BEE16716214F47EA001680B2 /* ZLSectionDataSource.h */,
+				BEE16719214F47EA001680B2 /* ZLSectionDataSource.m */,
+				BEE1671B214F47EA001680B2 /* ZLCellDataSource.h */,
+				BEE16717214F47EA001680B2 /* ZLCellDataSource.m */,
+			);
+			path = ZLCellDataSource;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BEE166DF214F4798001680B2 /* ZLCellDataSource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEE1670C214F479A001680B2 /* Build configuration list for PBXNativeTarget "ZLCellDataSource" */;
+			buildPhases = (
+				BEE166DC214F4798001680B2 /* Sources */,
+				BEE166DD214F4798001680B2 /* Frameworks */,
+				BEE166DE214F4798001680B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZLCellDataSource;
+			productName = ZLCellDataSource;
+			productReference = BEE166E0214F4798001680B2 /* ZLCellDataSource.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BEE166F7214F479A001680B2 /* ZLCellDataSourceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEE1670F214F479A001680B2 /* Build configuration list for PBXNativeTarget "ZLCellDataSourceTests" */;
+			buildPhases = (
+				BEE166F4214F479A001680B2 /* Sources */,
+				BEE166F5214F479A001680B2 /* Frameworks */,
+				BEE166F6214F479A001680B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEE166FA214F479A001680B2 /* PBXTargetDependency */,
+			);
+			name = ZLCellDataSourceTests;
+			productName = ZLCellDataSourceTests;
+			productReference = BEE166F8214F479A001680B2 /* ZLCellDataSourceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BEE16702214F479A001680B2 /* ZLCellDataSourceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BEE16712214F479A001680B2 /* Build configuration list for PBXNativeTarget "ZLCellDataSourceUITests" */;
+			buildPhases = (
+				BEE166FF214F479A001680B2 /* Sources */,
+				BEE16700214F479A001680B2 /* Frameworks */,
+				BEE16701214F479A001680B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BEE16705214F479A001680B2 /* PBXTargetDependency */,
+			);
+			name = ZLCellDataSourceUITests;
+			productName = ZLCellDataSourceUITests;
+			productReference = BEE16703214F479A001680B2 /* ZLCellDataSourceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BEE166D8214F4798001680B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = github;
+				TargetAttributes = {
+					BEE166DF214F4798001680B2 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					BEE166F7214F479A001680B2 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = BEE166DF214F4798001680B2;
+					};
+					BEE16702214F479A001680B2 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = BEE166DF214F4798001680B2;
+					};
+				};
+			};
+			buildConfigurationList = BEE166DB214F4798001680B2 /* Build configuration list for PBXProject "ZLCellDataSource" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BEE166D7214F4798001680B2;
+			productRefGroup = BEE166E1214F4798001680B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BEE166DF214F4798001680B2 /* ZLCellDataSource */,
+				BEE166F7214F479A001680B2 /* ZLCellDataSourceTests */,
+				BEE16702214F479A001680B2 /* ZLCellDataSourceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BEE166DE214F4798001680B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE166F0214F479A001680B2 /* LaunchScreen.storyboard in Resources */,
+				BEE166ED214F479A001680B2 /* Assets.xcassets in Resources */,
+				BEE166EB214F4798001680B2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE166F6214F479A001680B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE16701214F479A001680B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BEE166DC214F4798001680B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE1671E214F47EA001680B2 /* ZLSectionDataSource.m in Sources */,
+				BEE166E8214F4798001680B2 /* ViewController.m in Sources */,
+				BEE166F3214F479A001680B2 /* main.m in Sources */,
+				BEE1671C214F47EA001680B2 /* ZLCellDataSource.m in Sources */,
+				BEE166E5214F4798001680B2 /* AppDelegate.m in Sources */,
+				BEE1671D214F47EA001680B2 /* ZLBaseViewModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE166F4214F479A001680B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE166FD214F479A001680B2 /* ZLCellDataSourceTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BEE166FF214F479A001680B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEE16708214F479A001680B2 /* ZLCellDataSourceUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BEE166FA214F479A001680B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEE166DF214F4798001680B2 /* ZLCellDataSource */;
+			targetProxy = BEE166F9214F479A001680B2 /* PBXContainerItemProxy */;
+		};
+		BEE16705214F479A001680B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BEE166DF214F4798001680B2 /* ZLCellDataSource */;
+			targetProxy = BEE16704214F479A001680B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BEE166E9214F4798001680B2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEE166EA214F4798001680B2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BEE166EE214F479A001680B2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BEE166EF214F479A001680B2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BEE1670A214F479A001680B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BEE1670B214F479A001680B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BEE1670D214F479A001680B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZLCellDataSource/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ZLCellDataSource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BEE1670E214F479A001680B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZLCellDataSource/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ZLCellDataSource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BEE16710214F479A001680B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZLCellDataSourceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ZLCellDataSourceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZLCellDataSource.app/ZLCellDataSource";
+			};
+			name = Debug;
+		};
+		BEE16711214F479A001680B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZLCellDataSourceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ZLCellDataSourceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZLCellDataSource.app/ZLCellDataSource";
+			};
+			name = Release;
+		};
+		BEE16713214F479A001680B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZLCellDataSourceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ZLCellDataSourceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZLCellDataSource;
+			};
+			name = Debug;
+		};
+		BEE16714214F479A001680B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ZLCellDataSourceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.github.ZLCellDataSourceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ZLCellDataSource;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BEE166DB214F4798001680B2 /* Build configuration list for PBXProject "ZLCellDataSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE1670A214F479A001680B2 /* Debug */,
+				BEE1670B214F479A001680B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEE1670C214F479A001680B2 /* Build configuration list for PBXNativeTarget "ZLCellDataSource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE1670D214F479A001680B2 /* Debug */,
+				BEE1670E214F479A001680B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEE1670F214F479A001680B2 /* Build configuration list for PBXNativeTarget "ZLCellDataSourceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE16710214F479A001680B2 /* Debug */,
+				BEE16711214F479A001680B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BEE16712214F479A001680B2 /* Build configuration list for PBXNativeTarget "ZLCellDataSourceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BEE16713214F479A001680B2 /* Debug */,
+				BEE16714214F479A001680B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BEE166D8214F4798001680B2 /* Project object */;
+}
