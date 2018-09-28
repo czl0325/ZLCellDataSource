@@ -17,8 +17,14 @@ typedef void (^CellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
            configureCellBlock:(CellConfigureBlock)configureCellBlock;
 
+- (instancetype)initWithItems:(NSArray *)items
+               cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
+                  cellClasses:(NSArray<Class>*)cellClasses
+           configureCellBlock:(CellConfigureBlock)configureCellBlock;
+
 @property (nonatomic, copy) NSArray* items;
 @property (nonatomic, copy) NSArray<NSString*>* cellIdentifiers;
+@property (nonatomic, copy) NSArray<Class>* cellClasses;
 @property (nonatomic, copy) CellConfigureBlock configureCellBlock;
 
 @end

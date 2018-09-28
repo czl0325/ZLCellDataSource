@@ -13,6 +13,13 @@
 - (instancetype)initWithItems:(NSArray *)items
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
            configureCellBlock:(CellConfigureBlock)configureCellBlock {
+    return [self initWithItems:items cellIdentifier:cellIdentifiers cellClasses:nil configureCellBlock:configureCellBlock];
+}
+
+- (instancetype)initWithItems:(NSArray *)items
+               cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
+                  cellClasses:(NSArray<Class>*)cellClasses
+           configureCellBlock:(CellConfigureBlock)configureCellBlock  {
     self = [super init];
     if (!self) {
         return nil;
@@ -28,6 +35,23 @@
         }
         _cellIdentifiers = [arr copy];
     }
+    NSMutableArray* arrayClasses = [NSMutableArray new];
+    if (cellClasses == nil) {
+        NSString* identifier = cellIdentifiers[cellIdentifiers.count-1];
+        for (NSInteger i=0; i<_cellIdentifiers.count; ++i) {
+            NSString* identify = _cellIdentifiers[i];
+            [arrayClasses addObject:NSClassFromString(identify)];
+        }
+    } else {
+        for (NSInteger i=0; i<_cellIdentifiers.count; i++) {
+            if (i<_cellClasses.count) {
+                [arrayClasses addObject:_cellClasses[i]];
+            } else {
+                [arrayClasses addObject:_cellClasses[_cellClasses.count-1]];
+            }
+        }
+    }
+    _cellClasses = [arrayClasses copy];
     _configureCellBlock = configureCellBlock;
     return self;
 }
@@ -43,12 +67,17 @@
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath*)indexPath {
+    Class class = self.cellClasses[indexPath.section];
+    id myCell = [[class alloc]init];
+    if (!myCell) {
+        return nil;
+    }
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:self.cellIdentifiers[indexPath.section] forIndexPath:indexPath];
-    
+    myCell = cell;
     NSArray* array = self.items[indexPath.section];
     id item = array[indexPath.row];
-    self.configureCellBlock(cell, item, indexPath);
-    return cell;
+    self.configureCellBlock(myCell, item, indexPath);
+    return myCell;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -61,11 +90,17 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    Class class = self.cellClasses[indexPath.section];
+    id myCell = [[class alloc]init];
+    if (!myCell) {
+        return nil;
+    }
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifiers[indexPath.section] forIndexPath:indexPath];
+    myCell = cell;
     NSArray* array = self.items[indexPath.section];
     id item = array[indexPath.row];
-    self.configureCellBlock(cell, item, indexPath);
-    return cell;
+    self.configureCellBlock(myCell, item, indexPath);
+    return myCell;
 }
 
 @end
