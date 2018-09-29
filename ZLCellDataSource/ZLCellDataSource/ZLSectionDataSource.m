@@ -26,6 +26,7 @@
     }
     _items = items;
     _cellIdentifiers = cellIdentifiers;
+    _cellClasses = cellClasses;
     if (cellIdentifiers.count < items.count && cellIdentifiers.count > 0) {
         NSMutableArray* arr = [NSMutableArray new];
         [arr addObjectsFromArray:cellIdentifiers];
@@ -43,7 +44,7 @@
             [arrayClasses addObject:NSClassFromString(identify)];
         }
     } else {
-        for (NSInteger i=0; i<_cellIdentifiers.count; i++) {
+        for (NSInteger i=0; i<_cellClasses.count; i++) {
             if (i<_cellClasses.count) {
                 [arrayClasses addObject:_cellClasses[i]];
             } else {

@@ -16,6 +16,8 @@ typedef void(^ViewModelFailBlock)(id data);
 @property(nonatomic,copy)ViewModelSuccessBlock successBlock;
 @property(nonatomic,copy)ViewModelFailBlock failBlock;
 
+@property(nonatomic,assign)NSInteger currentIndex;
+
 - (instancetype)initWithSuccess:(ViewModelSuccessBlock)successBlock fail:(ViewModelFailBlock) failBlock;
 
 @end

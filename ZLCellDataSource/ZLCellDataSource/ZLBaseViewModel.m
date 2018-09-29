@@ -10,8 +10,6 @@
 
 @interface ZLBaseViewModel()
 
-@property(nonatomic,assign)NSInteger currentIndex;
-
 @end
 
 @implementation ZLBaseViewModel
