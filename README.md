@@ -1,5 +1,13 @@
 # ZLCellDataSource
-MVVM，MVP的应用。为UIViewController瘦身，把UITableView和UICollectionView的代理提取出来，可节省1/3的代码量。
+mvvm，mvp的应用。为viewcontroller瘦身，把tableview和collectionview的datasource提取出来，可节省1/3的代码量。
+
+### 版本
+
+#### 0.2.1
+* 修改了多section的bug
+
+#### 0.2.0
+* 增加多section的datasource提取
 
 支持cocoapod导入
 
