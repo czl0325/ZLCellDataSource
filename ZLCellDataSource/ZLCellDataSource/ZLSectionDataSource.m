@@ -38,17 +38,22 @@
     }
     NSMutableArray* arrayClasses = [NSMutableArray new];
     if (cellClasses == nil) {
-        NSString* identifier = cellIdentifiers[cellIdentifiers.count-1];
-        for (NSInteger i=0; i<_cellIdentifiers.count; ++i) {
+        for (NSUInteger i=0; i<_cellIdentifiers.count; ++i) {
             NSString* identify = _cellIdentifiers[i];
             [arrayClasses addObject:NSClassFromString(identify)];
         }
     } else {
-        for (NSInteger i=0; i<_cellClasses.count; i++) {
+        for (NSUInteger i=0; i<_cellClasses.count; i++) {
             if (i<_cellClasses.count) {
                 [arrayClasses addObject:_cellClasses[i]];
             } else {
                 [arrayClasses addObject:_cellClasses[_cellClasses.count-1]];
+            }
+        }
+        if (arrayClasses.count < _cellIdentifiers.count && arrayClasses.count > 0) {
+            Class lastClass = arrayClasses[arrayClasses.count-1];
+            for (NSUInteger i=_cellClasses.count; i<_cellIdentifiers.count; i++) {
+                [arrayClasses addObject:lastClass];
             }
         }
     }

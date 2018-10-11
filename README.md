@@ -4,6 +4,9 @@ mvvm，mvp的应用。为viewcontroller瘦身，把tableview和collectionview的
 ### 版本
 
 #### 0.2.1
+* 增加了多section的class数组没传全，自动以最后一个class来填充全
+
+#### 0.2.1
 * 修改了多section的bug
 
 #### 0.2.0
