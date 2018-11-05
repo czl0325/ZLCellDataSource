@@ -134,7 +134,17 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSArray* array = self.items[section];
+    NSArray* array = nil;
+    if (_modelDictionary == nil) {
+        array = self.items[section];
+    } else {
+        id item = [[(NSClassFromString(self.modelDictionary.firstClassName)) alloc] init];
+        item = self.items[section];
+        array = [self nameWithInstance:item];
+    }
+    if (array == nil) {
+        return 0;
+    }
     return array.count;
 }
 
@@ -146,9 +156,17 @@
     }
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:self.cellIdentifiers[indexPath.section] forIndexPath:indexPath];
     myCell = cell;
-    NSArray* array = self.items[indexPath.section];
-    id item = array[indexPath.row];
-    self.configureCellBlock(myCell, item, indexPath);
+    if (_modelDictionary == nil) {
+        NSArray* array = self.items[indexPath.section];
+        id item = array[indexPath.row];
+        self.configureCellBlock(myCell, item, indexPath);
+    } else {
+        id item1 = [[(NSClassFromString(self.modelDictionary.firstClassName)) alloc] init];
+        item1 = self.items[indexPath.section];
+        NSArray* array = [self nameWithInstance:item1];
+        id item2 = array[indexPath.row];
+        self.configureCellBlock(myCell, item2, indexPath);
+    }
     return myCell;
 }
 
