@@ -11,6 +11,18 @@
 
 typedef void (^CellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
 
+/**
+ firstClassName : 为第一层数组的数据class类名
+ secondVariate : 为第二层数组对应的元素变量名
+ **/
+@interface ZLSectionModel : NSObject
+
+@property(nonatomic,copy)NSString* firstClassName;
+@property(nonatomic,copy)NSString* secondVariate;
+//@property(nonatomic,copy)NSString* secondClassName;
+
+@end
+
 @interface ZLSectionDataSource : NSObject<UITableViewDataSource,UICollectionViewDataSource>
 
 - (instancetype)initWithItems:(NSArray *)items
@@ -22,9 +34,12 @@ typedef void (^CellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
                   cellClasses:(NSArray<Class>*)cellClasses
            configureCellBlock:(CellConfigureBlock)configureCellBlock;
 
-@property (nonatomic, copy) NSArray* items;
-@property (nonatomic, copy) NSArray<NSString*>* cellIdentifiers;
-@property (nonatomic, copy) NSArray<Class>* cellClasses;
-@property (nonatomic, copy) CellConfigureBlock configureCellBlock;
+- (instancetype)initWithItems:(NSArray *)items
+               cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
+                  cellClasses:(NSArray<Class>*)cellClasses
+                     modelDic:(ZLSectionModel*)modelDic
+           configureCellBlock:(CellConfigureBlock)configureCellBlock;
+
+
 
 @end

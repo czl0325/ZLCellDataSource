@@ -9,8 +9,10 @@
 #import "ViewController.h"
 #import "ZLCellDataSource.h"
 #import "ZLBaseViewModel.h"
+#import "SectionViewController.h"
 
 @interface ViewController ()
+<UITableViewDelegate>
 
 @property(nonatomic,strong)NSMutableArray* array;
 //注意dataSource一定要声明为类的成员变量，才能生效。
@@ -47,9 +49,15 @@
      必须注册cell的类
     */
     self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"ZLCell"];
     [self.view addSubview:self.tableView];
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SectionViewController* vc = [[SectionViewController alloc]init];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 
