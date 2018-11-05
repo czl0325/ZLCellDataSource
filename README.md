@@ -3,7 +3,7 @@ mvvm，mvp的应用。为viewcontroller瘦身，把tableview和collectionview的
 
 ### 版本
 
-#### 0.2.1
+#### 0.2.2
 * 增加了多section的class数组没传全，自动以最后一个class来填充全
 
 #### 0.2.1
@@ -90,6 +90,49 @@ pod 'ZLCellDataSource'
 ```
 
 和单个section不同的是，cellIdentifiers需要传入数组，也可以只传入一个元素，ZLSectionDataSource会自动帮你把所有的section都匹配为同一个cellIdentifiers。
+
+举例：
+```
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    self.users = [NSMutableArray new];
+    for (int i=0; i<5; i++) {
+        User* user = [User new];
+        user.name = @"czl";
+        user.phone = @"1111";
+        user.age = 20;
+        
+        NSMutableArray* arr = [NSMutableArray new];
+        for (int j=0; j<3; j++) {
+            Address* addr = [Address new];
+            addr.province = @"fujian";
+            addr.city = @"xiamen";
+            addr.address = @"123123123123";
+            [arr addObject:addr];
+        }
+        
+        user.addresses = arr;
+        [self.users addObject:user];
+    }
+    
+    ZLSectionModel* model = [ZLSectionModel new];
+    model.firstClassName = @"User";
+    model.secondVariate = @"addresses";
+    
+    self.dataSource = [[ZLSectionDataSource alloc]initWithItems:self.users cellIdentifier:@[@"UserCell"] cellClasses:@[UserCell.class] modelDic:model configureCellBlock:^(UserCell* cell, Address* item, NSIndexPath *indexPath) {
+        cell.address = item;
+    }];
+    
+    self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+    self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self;
+    [self.tableView registerClass:UserCell.class forCellReuseIdentifier:@"UserCell"];
+    [self.tableView registerClass:UserHeader.class forHeaderFooterViewReuseIdentifier:@"UserHeader"];
+    [self.view addSubview:self.tableView];
+}
+```
 
 ### ZLBaseViewModel
 
