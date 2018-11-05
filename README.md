@@ -3,6 +3,11 @@ mvvm，mvp的应用。为viewcontroller瘦身，把tableview和collectionview的
 
 ### 版本
 
+#### 0.2.3
+* 多section的操作加入了复杂类型，具体要指定一下ZLSectionModel<br>
+  firstClassName : 为第一层数组的数据class类名
+  secondVariate : 为第二层数组对应的元素变量名
+
 #### 0.2.2
 * 增加了多section的class数组没传全，自动以最后一个class来填充全
 
