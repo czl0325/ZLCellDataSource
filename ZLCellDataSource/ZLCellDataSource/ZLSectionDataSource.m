@@ -180,9 +180,11 @@
         //NSLog(@"Person拥有的成员变量的类型为%s，名字为 %s ",type, name);
         if ((strcmp(type, "@\"NSArray\"") == 0 || strcmp(type, "@\"NSMutableArray\"") == 0) && strcmp(name, self.modelDictionary.secondVariate.UTF8String)) {
             NSArray* array = object_getIvar(item, ivar);
+            free(ivars);
             return array;
         }
     }
+    free(ivars);
     return nil;
 }
 

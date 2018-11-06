@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZLCellDataSource"
-  s.version      = "0.2.3"
+  s.version      = "0.2.3.1"
   s.summary      = "ZLCellDataSource"
 
   s.description  = <<-DESC
