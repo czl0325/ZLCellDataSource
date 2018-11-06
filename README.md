@@ -30,7 +30,7 @@ pod 'ZLCellDataSource'
 
 把UITableView和UICollectionView的代理提取出来，使用者只需要在UIViewController类中定义好ZLCellDataSource* dataSource的对象，并实现它的block即可，并且主要要将dataSource赋值给UITableView的dataSource。同理UICollectionView也是如此。
 
-```
+```Objective-C
 @interface ViewController ()
 
 @property(nonatomic,strong)NSMutableArray* array;
@@ -88,7 +88,7 @@ pod 'ZLCellDataSource'
 
 同理，实现函数
 
-```
+```Objective-C
 - (instancetype)initWithItems:(NSArray *)items
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
            configureCellBlock:(CellConfigureBlock)configureCellBlock;
@@ -97,7 +97,7 @@ pod 'ZLCellDataSource'
 和单个section不同的是，cellIdentifiers需要传入数组，也可以只传入一个元素，ZLSectionDataSource会自动帮你把所有的section都匹配为同一个cellIdentifiers。
 
 举例：
-```
+```Objective-C
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
