@@ -35,7 +35,7 @@
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
                   cellClasses:(NSArray<Class>*)cellClasses
            configureCellBlock:(CellConfigureBlock)configureCellBlock  {
-    return [self initWithItems:items cellIdentifier:cellIdentifiers cellClasses:nil modelDic:nil configureCellBlock:configureCellBlock];
+    return [self initWithItems:items cellIdentifier:cellIdentifiers cellClasses:cellClasses modelDic:nil configureCellBlock:configureCellBlock];
 }
 
 - (instancetype)initWithItems:(NSArray *)items
