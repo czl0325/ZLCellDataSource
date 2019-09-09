@@ -3,6 +3,9 @@ mvvm，mvp的应用。为viewcontroller瘦身，把tableview和collectionview的
 
 ### 版本
 
+#### 0.3.0
+* 增加多个cell的操作，需要实现代理方法
+
 #### 0.2.3
 * 多section的操作加入了复杂类型，具体要指定一下ZLSectionModel<br>
   firstClassName : 为第一层数组的数据class类名

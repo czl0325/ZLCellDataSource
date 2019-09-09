@@ -10,6 +10,7 @@
 #import "ZLSectionDataSource.h"
 #import "UserCell.h"
 #import "UserHeader.h"
+#import "MoreCellViewController.h"
 
 @interface SectionViewController ()
 <UITableViewDelegate>
@@ -74,6 +75,12 @@
     UserHeader* header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UserHeader"];
     header.user = self.users[section];
     return header;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    MoreCellViewController* vc = [[MoreCellViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end
