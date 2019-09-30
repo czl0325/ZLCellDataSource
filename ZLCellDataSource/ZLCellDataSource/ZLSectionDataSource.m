@@ -15,34 +15,46 @@
 
 @interface ZLSectionDataSource()
 
-@property (nonatomic, copy) NSArray* items;
+@property (nonatomic, copy) NSMutableArray* items;
 @property (nonatomic, copy) NSArray<NSString*>* cellIdentifiers;
 @property (nonatomic, copy) NSArray<Class>* cellClasses;
 @property (nonatomic, copy) ZLSectionModel* modelDictionary;
 @property (nonatomic, copy) CellConfigureBlock configureCellBlock;
+@property (nonatomic, weak) id<ZLSectionDataSourceDelegate> delegate;
+@property (nonatomic, copy) HeaderOrFooterConfigureBlock configureSectionBlock;
 
 @end
 
 @implementation ZLSectionDataSource
 
-- (instancetype)initWithItems:(NSArray *)items
+- (instancetype)initWithItems:(NSMutableArray *)items
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
            configureCellBlock:(CellConfigureBlock)configureCellBlock {
     return [self initWithItems:items cellIdentifier:cellIdentifiers cellClasses:nil configureCellBlock:configureCellBlock];
 }
 
-- (instancetype)initWithItems:(NSArray *)items
+- (instancetype)initWithItems:(NSMutableArray *)items
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
                   cellClasses:(NSArray<Class>*)cellClasses
            configureCellBlock:(CellConfigureBlock)configureCellBlock  {
     return [self initWithItems:items cellIdentifier:cellIdentifiers cellClasses:cellClasses modelDic:nil configureCellBlock:configureCellBlock];
 }
 
-- (instancetype)initWithItems:(NSArray *)items
+- (instancetype)initWithItems:(NSMutableArray *)items
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
                   cellClasses:(NSArray<Class>*)cellClasses
                      modelDic:(ZLSectionModel*)modelDic
            configureCellBlock:(CellConfigureBlock)configureCellBlock {
+    return [self initWithItems:items cellIdentifier:cellIdentifiers cellClasses:cellClasses modelDic:modelDic delegate:nil configureCellBlock:configureCellBlock configureSectionBlock:nil];
+}
+
+- (instancetype)initWithItems:(NSMutableArray *)items
+    cellIdentifier:(NSArray<NSString *> *)cellIdentifiers
+       cellClasses:(NSArray<Class> *)cellClasses
+          modelDic:(ZLSectionModel *)modelDic
+          delegate:(id<ZLSectionDataSourceDelegate>)delegate
+           configureCellBlock:(CellConfigureBlock)configureCellBlock
+           configureSectionBlock:(HeaderOrFooterConfigureBlock)configureSectionBlock {
     self = [super init];
     if (!self) {
         return nil;
@@ -51,6 +63,7 @@
     _cellIdentifiers = cellIdentifiers;
     _cellClasses = cellClasses;
     _modelDictionary = modelDic;
+    _delegate = delegate;
     
     if (cellIdentifiers.count < items.count && cellIdentifiers.count > 0) {
         NSMutableArray* arr = [NSMutableArray new];
@@ -84,11 +97,65 @@
     }
     _cellClasses = [arrayClasses copy];
     _configureCellBlock = configureCellBlock;
+    _configureSectionBlock = configureSectionBlock;
+
     return self;
+}
+
+- (void)dealloc {
+    //NSLog(@"释放了...");
+}
+
+- (void)checkCells {
+    if (_cellIdentifiers.count < _items.count && _cellIdentifiers.count > 0) {
+        NSMutableArray* arr = [NSMutableArray new];
+        [arr addObjectsFromArray:_cellIdentifiers];
+        NSString* identifier = _cellIdentifiers[_cellIdentifiers.count-1];
+        for (NSInteger i=_cellIdentifiers.count; i<_items.count; i++) {
+            [arr addObject:identifier];
+        }
+        _cellIdentifiers = [arr copy];
+    }
+//    else if (_cellIdentifiers.count > _items.count) {
+//        NSMutableArray* arr = [NSMutableArray new];
+//        [arr addObjectsFromArray:_cellIdentifiers];
+//        while (arr.count > _items.count) {
+//            [arr removeLastObject];
+//        }
+//        _cellIdentifiers = [arr copy];
+//    }
+    NSMutableArray* arrayClasses = [NSMutableArray new];
+    if (_cellClasses == nil) {
+        for (NSUInteger i=0; i<_cellIdentifiers.count; ++i) {
+            NSString* identify = _cellIdentifiers[i];
+            [arrayClasses addObject:NSClassFromString(identify)];
+        }
+    } else {
+        for (NSUInteger i=0; i<_cellClasses.count; i++) {
+            if (i<_cellClasses.count) {
+                [arrayClasses addObject:_cellClasses[i]];
+            } else {
+                [arrayClasses addObject:_cellClasses[_cellClasses.count-1]];
+            }
+        }
+        if (arrayClasses.count < _cellIdentifiers.count && arrayClasses.count > 0) {
+            Class lastClass = arrayClasses[arrayClasses.count-1];
+            for (NSUInteger i=_cellClasses.count; i<_cellIdentifiers.count; i++) {
+                [arrayClasses addObject:lastClass];
+            }
+        }
+//        else if (arrayClasses.count > _cellIdentifiers.count) {
+//            while (arrayClasses.count > _cellIdentifiers.count) {
+//                [arrayClasses removeLastObject];
+//            }
+//        }
+    }
+    _cellClasses = [arrayClasses copy];
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    [self checkCells];
     return self.items.count;
 }
 
@@ -130,6 +197,7 @@
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    [self checkCells];
     return self.items.count;
 }
 
@@ -168,6 +236,29 @@
         self.configureCellBlock(myCell, item2, indexPath);
     }
     return myCell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if ([kind isEqualToString : UICollectionElementKindSectionHeader]) {
+        if (_delegate && [_delegate respondsToSelector:@selector(getSectionHeaderIdentifierByIndex:)]) {
+            NSString *strHeader = [_delegate getSectionHeaderIdentifierByIndex:indexPath.section];
+            if (strHeader != nil) {
+                id header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:strHeader forIndexPath:indexPath];
+                self.configureSectionBlock(header, indexPath);
+                return header;
+            }
+        }
+    } else if ([kind isEqualToString : UICollectionElementKindSectionFooter]) {
+        if (_delegate && [_delegate respondsToSelector:@selector(getSectionFooterIdentifierByIndex:)]) {
+            NSString *strFooter = [_delegate getSectionFooterIdentifierByIndex:indexPath.section];
+            if (strFooter != nil) {
+                id footer = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:strFooter forIndexPath:indexPath];
+                self.configureSectionBlock(footer, indexPath);
+                return footer;
+            }
+        }
+    }
+    return nil;
 }
 
 - (NSArray*)nameWithInstance:(id)item {

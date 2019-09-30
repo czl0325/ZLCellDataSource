@@ -10,9 +10,10 @@
 #import "ZLCellDataSource.h"
 #import "MyCell1.h"
 #import "MyCell2.h"
+#import "CitysViewController.h"
 
 @interface MoreCellViewController ()
-<ZLCellDataSourceDelegate>
+<ZLCellDataSourceDelegate, UITableViewDelegate>
 
 @property(nonatomic,strong)NSMutableArray* array;
 //注意dataSource一定要声明为类的成员变量，才能生效。
@@ -53,6 +54,7 @@
      必须注册cell的类
      */
     self.tableView.dataSource = self.dataSource;
+    self.tableView.delegate = self;
     [self.tableView registerClass:[MyCell1 class] forCellReuseIdentifier:@"MyCell1"];
     [self.tableView registerClass:[MyCell2 class] forCellReuseIdentifier:@"MyCell2"];
     [self.view addSubview:self.tableView];
@@ -64,6 +66,11 @@
     } else {
         return @"MyCell2";
     }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CitysViewController* vc = [[CitysViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

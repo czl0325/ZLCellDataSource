@@ -9,6 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@protocol ZLSectionDataSourceDelegate <NSObject>
+@optional
+
+- (NSString*)getCellIdentifierByIndex:(NSIndexPath*)indexPath;
+- (NSString*)getSectionHeaderIdentifierByIndex:(NSInteger)section;
+- (NSString*)getSectionFooterIdentifierByIndex:(NSInteger)section;
+
+@end
+
+typedef void (^HeaderOrFooterConfigureBlock)(id section, NSIndexPath *indexPath);
 typedef void (^CellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
 
 /**
@@ -25,21 +35,28 @@ typedef void (^CellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
 
 @interface ZLSectionDataSource : NSObject<UITableViewDataSource,UICollectionViewDataSource>
 
-- (instancetype)initWithItems:(NSArray *)items
+- (instancetype)initWithItems:(NSMutableArray *)items
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
            configureCellBlock:(CellConfigureBlock)configureCellBlock;
 
-- (instancetype)initWithItems:(NSArray *)items
+- (instancetype)initWithItems:(NSMutableArray *)items
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
                   cellClasses:(NSArray<Class>*)cellClasses
            configureCellBlock:(CellConfigureBlock)configureCellBlock;
 
-- (instancetype)initWithItems:(NSArray *)items
+- (instancetype)initWithItems:(NSMutableArray *)items
                cellIdentifier:(NSArray<NSString*> *)cellIdentifiers
                   cellClasses:(NSArray<Class>*)cellClasses
                      modelDic:(ZLSectionModel*)modelDic
            configureCellBlock:(CellConfigureBlock)configureCellBlock;
 
-
+//仅针对UICollectionView
+- (instancetype)initWithItems:(NSMutableArray *)items
+               cellIdentifier:(NSArray<NSString *> *)cellIdentifiers
+                  cellClasses:(NSArray<Class> *)cellClasses
+                     modelDic:(ZLSectionModel *)modelDic
+                     delegate:(id<ZLSectionDataSourceDelegate>)delegate
+           configureCellBlock:(CellConfigureBlock)configureCellBlock
+        configureSectionBlock:(HeaderOrFooterConfigureBlock)configureSectionBlock;
 
 @end

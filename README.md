@@ -3,6 +3,10 @@ mvvm，mvp的应用。为viewcontroller瘦身，把tableview和collectionview的
 
 ### 版本
 
+#### 0.4.0
+* 增加多section的情况下，数组可变的情况
+* 增加多section的情况下，配置collectionview的头和尾视图
+
 #### 0.3.0
 * 增加多个cell的操作，需要实现代理方法
 

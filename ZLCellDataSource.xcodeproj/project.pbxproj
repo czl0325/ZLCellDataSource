@@ -21,6 +21,9 @@
 		BEE1671C214F47EA001680B2 /* ZLCellDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE16717214F47EA001680B2 /* ZLCellDataSource.m */; };
 		BEE1671D214F47EA001680B2 /* ZLBaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE16718214F47EA001680B2 /* ZLBaseViewModel.m */; };
 		BEE1671E214F47EA001680B2 /* ZLSectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = BEE16719214F47EA001680B2 /* ZLSectionDataSource.m */; };
+		BEEAFE6723408C7B00D623C6 /* CitysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEEAFE6623408C7B00D623C6 /* CitysViewController.m */; };
+		BEEAFE6B23408CE900D623C6 /* CollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEEAFE6A23408CE900D623C6 /* CollectionHeaderView.m */; };
+		BEEAFE6E23408CF800D623C6 /* CollectionCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BEEAFE6D23408CF800D623C6 /* CollectionCellView.m */; };
 		BEF2737C21901D1900DEF437 /* UserHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BEF2737B21901D1900DEF437 /* UserHeader.m */; };
 		BEFA644521900F2800EBAE12 /* SectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFA644421900F2800EBAE12 /* SectionViewController.m */; };
 		BEFA64482190133C00EBAE12 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFA64472190133C00EBAE12 /* User.m */; };
@@ -73,6 +76,12 @@
 		BEE16719214F47EA001680B2 /* ZLSectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLSectionDataSource.m; sourceTree = "<group>"; };
 		BEE1671A214F47EA001680B2 /* ZLBaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLBaseViewModel.h; sourceTree = "<group>"; };
 		BEE1671B214F47EA001680B2 /* ZLCellDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLCellDataSource.h; sourceTree = "<group>"; };
+		BEEAFE6523408C7B00D623C6 /* CitysViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitysViewController.h; sourceTree = "<group>"; };
+		BEEAFE6623408C7B00D623C6 /* CitysViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitysViewController.m; sourceTree = "<group>"; };
+		BEEAFE6923408CE900D623C6 /* CollectionHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionHeaderView.h; sourceTree = "<group>"; };
+		BEEAFE6A23408CE900D623C6 /* CollectionHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionHeaderView.m; sourceTree = "<group>"; };
+		BEEAFE6C23408CF800D623C6 /* CollectionCellView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionCellView.h; sourceTree = "<group>"; };
+		BEEAFE6D23408CF800D623C6 /* CollectionCellView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionCellView.m; sourceTree = "<group>"; };
 		BEF2737A21901D1900DEF437 /* UserHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserHeader.h; sourceTree = "<group>"; };
 		BEF2737B21901D1900DEF437 /* UserHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserHeader.m; sourceTree = "<group>"; };
 		BEFA644321900F2800EBAE12 /* SectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SectionViewController.h; sourceTree = "<group>"; };
@@ -138,23 +147,20 @@
 				BEE166E7214F4798001680B2 /* ViewController.m */,
 				BEFA644321900F2800EBAE12 /* SectionViewController.h */,
 				BEFA644421900F2800EBAE12 /* SectionViewController.m */,
+				BEEAFE6523408C7B00D623C6 /* CitysViewController.h */,
+				BEEAFE6623408C7B00D623C6 /* CitysViewController.m */,
 				BEE166E9214F4798001680B2 /* Main.storyboard */,
 				BEE166EC214F479A001680B2 /* Assets.xcassets */,
 				BEE166EE214F479A001680B2 /* LaunchScreen.storyboard */,
 				BEE166F1214F479A001680B2 /* Info.plist */,
 				BEE166F2214F479A001680B2 /* main.m */,
+				BEEAFE6823408CB400D623C6 /* view */,
 				BEFA64462190133C00EBAE12 /* User.h */,
 				BEFA64472190133C00EBAE12 /* User.m */,
-				BEFA64492190154F00EBAE12 /* UserCell.h */,
-				BEFA644A2190154F00EBAE12 /* UserCell.m */,
 				BEF2737A21901D1900DEF437 /* UserHeader.h */,
 				BEF2737B21901D1900DEF437 /* UserHeader.m */,
 				BE8C30242325F37500964B4A /* MoreCellViewController.h */,
 				BE8C30252325F37500964B4A /* MoreCellViewController.m */,
-				BE8C30272325F41B00964B4A /* MyCell1.h */,
-				BE8C30282325F41B00964B4A /* MyCell1.m */,
-				BE8C302A2325F42900964B4A /* MyCell2.h */,
-				BE8C302B2325F42900964B4A /* MyCell2.m */,
 			);
 			path = ZLCellDataSource;
 			sourceTree = "<group>";
@@ -188,6 +194,23 @@
 				BEE16717214F47EA001680B2 /* ZLCellDataSource.m */,
 			);
 			path = ZLCellDataSource;
+			sourceTree = "<group>";
+		};
+		BEEAFE6823408CB400D623C6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				BEFA64492190154F00EBAE12 /* UserCell.h */,
+				BEFA644A2190154F00EBAE12 /* UserCell.m */,
+				BE8C30272325F41B00964B4A /* MyCell1.h */,
+				BE8C30282325F41B00964B4A /* MyCell1.m */,
+				BE8C302A2325F42900964B4A /* MyCell2.h */,
+				BE8C302B2325F42900964B4A /* MyCell2.m */,
+				BEEAFE6923408CE900D623C6 /* CollectionHeaderView.h */,
+				BEEAFE6A23408CE900D623C6 /* CollectionHeaderView.m */,
+				BEEAFE6C23408CF800D623C6 /* CollectionCellView.h */,
+				BEEAFE6D23408CF800D623C6 /* CollectionCellView.m */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,9 +344,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BEFA64482190133C00EBAE12 /* User.m in Sources */,
+				BEEAFE6723408C7B00D623C6 /* CitysViewController.m in Sources */,
 				BE8C302C2325F42900964B4A /* MyCell2.m in Sources */,
 				BEF2737C21901D1900DEF437 /* UserHeader.m in Sources */,
+				BEEAFE6B23408CE900D623C6 /* CollectionHeaderView.m in Sources */,
 				BE8C30262325F37500964B4A /* MoreCellViewController.m in Sources */,
+				BEEAFE6E23408CF800D623C6 /* CollectionCellView.m in Sources */,
 				BE8C30292325F41B00964B4A /* MyCell1.m in Sources */,
 				BEE1671E214F47EA001680B2 /* ZLSectionDataSource.m in Sources */,
 				BEE166E8214F4798001680B2 /* ViewController.m in Sources */,
@@ -502,11 +528,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.4.0;
 				INFOPLIST_FILE = ZLCellDataSource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ZLCellDataSource;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -518,11 +546,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.4.0;
 				INFOPLIST_FILE = ZLCellDataSource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.github.ZLCellDataSource;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
