@@ -41,6 +41,11 @@
         cell.textLabel.text = item;
         cell.textLabel.textColor = [UIColor redColor];
     }];
+//    self.dataSource = [[ZLCellDataSource alloc]initWithItems:self.array style:UITableViewCellStyleValue1 configureCellBlock:^(UITableViewCell* cell, NSString* item, NSIndexPath *indexPath) {
+//        cell.textLabel.text = item;
+//        cell.detailTextLabel.text = item;
+//        cell.textLabel.textColor = [UIColor redColor];
+//    }];
     
     self.tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     /*

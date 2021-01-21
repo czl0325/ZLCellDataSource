@@ -17,6 +17,7 @@
 @end
 
 typedef void (^CellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
+typedef void (^HeaderConfigureBlock)(id header, NSInteger *section);
 
 @interface ZLCellDataSource : NSObject
 <UITableViewDataSource,UICollectionViewDataSource>
@@ -31,11 +32,17 @@ typedef void (^CellConfigureBlock)(id cell, id item, NSIndexPath *indexPath);
                      delegate:(id<ZLCellDataSourceDelegate>)delegate
            configureCellBlock:(CellConfigureBlock)configureCellBlock;
 
+//适用于独立tableViewCellStyle
+- (instancetype)initWithItems:(NSArray*)items
+                        style:(UITableViewCellStyle)style
+           configureCellBlock:(CellConfigureBlock)configureCellBlock;
+
 - (instancetype)itemAtIndexPath:(NSIndexPath *)indexPath;
 
 @property (nonatomic, strong) NSArray* items;
 @property (nonatomic, copy) NSString* cellIdentifier;
 @property (nonatomic, copy) CellConfigureBlock configureCellBlock;
 @property (nonatomic, weak) id<ZLCellDataSourceDelegate> delegate;
+@property (nonatomic, assign) UITableViewCellStyle style;
 
 @end

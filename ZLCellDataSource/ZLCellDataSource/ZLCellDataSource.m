@@ -36,6 +36,18 @@
     return self;
 }
 
+- (instancetype)initWithItems:(NSArray*)items
+                        style:(UITableViewCellStyle)style
+           configureCellBlock:(CellConfigureBlock)configureCellBlock {
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    _items = items;
+    _style = style;
+    _configureCellBlock = configureCellBlock;
+    return self;
+}
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
@@ -47,6 +59,14 @@
         NSString* identify = [_delegate getCellIdentifierByIndex:indexPath];
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identify forIndexPath:indexPath];
+        id item = [self itemAtIndexPath:indexPath];
+        self.configureCellBlock(cell, item, indexPath);
+        return cell;
+    } else if (_style != UITableViewCellStyleDefault) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc]initWithStyle:_style reuseIdentifier:@"UITableViewCell"];
+        }
         id item = [self itemAtIndexPath:indexPath];
         self.configureCellBlock(cell, item, indexPath);
         return cell;
